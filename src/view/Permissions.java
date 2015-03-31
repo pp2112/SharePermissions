@@ -51,10 +51,15 @@ public class Permissions {
 			public void actionPerformed(ActionEvent arg0) {
 			
 				try {
+					// Replace "\\\\PAVAN-PC\\Users\\Pavan\\Documents\\LOLReplay" with your own path
+					// Mounts the shared folder to a network drive p:
 					Runtime.getRuntime().exec("net use p: \\\\PAVAN-PC\\Users\\Pavan\\Documents\\LOLReplay");
+					// Sets the new folder inside the drive
 					File test_folder = new File("p:\\Test_Folder");
 					Thread.sleep(1000);
+					// Creates a new folder called Test_Folder
 					test_folder.mkdir();
+					// Sets the permission of that folder so that no one can read it
 					Runtime.getRuntime().exec("icacls p:\\Test_Folder /deny Everyone:R");
 				} catch (Exception e) {
 					
